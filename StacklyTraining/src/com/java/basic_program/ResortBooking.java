@@ -5,109 +5,115 @@ import java.util.Scanner;
 public class ResortBooking {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		        Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
-		        int roomType, mealType, days;
-		        double roomCharge = 0, mealCharge = 0, totalBill;
+		int roomType;
+		int mealPlan;
+		int days;
+		double roomCharge = 0;
+		double mealCharge = 0;
+		double totalBill;
 
-		        System.out.println("===== RESORT BOOKING =====");
-		        System.out.println("1. Deluxe Room");
-		        System.out.println("2. Super Deluxe Room");
-		        System.out.println("3. Suite Room");
+		// Room Type Validation
+		do {
+			System.out.println("\n===== RESORT BOOKING =====");
+			System.out.println("1. Deluxe Room");
+			System.out.println("2. Super Deluxe Room");
+			System.out.println("3. Suite Room");
+			System.out.print("Enter Room Type: ");
+			roomType = sc.nextInt();
 
-		        System.out.print("Select Room Type: ");
-		        roomType = sc.nextInt();
+			switch (roomType) {
+			case 1, 2, 3 -> {
+			}
+			default -> System.out.println("Invalid Room Type! Please Enter Again.");
+			}
 
-		        System.out.print("Enter Number of Days: ");
-		        days = sc.nextInt();
+		} while (roomType != 1 && roomType != 2 && roomType != 3);
 
-		        switch (roomType) {
+		System.out.print("Enter Number of Days: ");
+		days = sc.nextInt();
 
-		            case 1:
-		                roomCharge = 3000;
+		switch (roomType) {
 
-		                System.out.println("Select Meal Plan");
-		                System.out.println("1. Breakfast (₹300/day)");
-		                System.out.println("2. Breakfast + Dinner (₹700/day)");
-		                mealType = sc.nextInt();
+		case 1 -> {
+			roomCharge = 3000;
 
-		                switch (mealType) {
-		                    case 1:
-		                        mealCharge = 300;
-		                        break;
-		                    case 2:
-		                        mealCharge = 700;
-		                        break;
-		                    default:
-		                        System.out.println("Invalid Meal Plan");
-		                       // return;
-		                }
-		                break;
+			do {
+				System.out.println("\nMeal Plan");
+				System.out.println("1. Breakfast (₹300)");
+				System.out.println("2. Breakfast + Dinner (₹700)");
+				System.out.print("Enter Meal Plan: ");
+				mealPlan = sc.nextInt();
 
-		            case 2:
-		                roomCharge = 5000;
+				switch (mealPlan) {
+				case 1 -> mealCharge = 300;
+				case 2 -> mealCharge = 700;
+				default -> System.out.println("Invalid Meal Plan! Please Enter Again.");
+				}
 
-		                System.out.println("Select Meal Plan");
-		                System.out.println("1. Breakfast (₹400/day)");
-		                System.out.println("2. Breakfast + Dinner (₹900/day)");
-		                mealType = sc.nextInt();
-
-		                switch (mealType) {
-		                    case 1:
-		                        mealCharge = 400;
-		                        break;
-		                    case 2:
-		                        mealCharge = 900;
-		                        break;
-		                    default:
-		                        System.out.println("Invalid Meal Plan");
-		                      //  return;
-		                }
-		                break;
-
-		            case 3:
-		                roomCharge = 8000;
-
-		                System.out.println("Select Meal Plan");
-		                System.out.println("1. Breakfast (₹500/day)");
-		                System.out.println("2. Breakfast + Lunch + Dinner (₹1200/day)");
-		                mealType = sc.nextInt();
-
-		                switch (mealType) {
-		                    case 1:
-		                        mealCharge = 500;
-		                        break;
-		                    case 2:
-		                        mealCharge = 1200;
-		                        break;
-		                    default:
-		                        System.out.println("Invalid Meal Plan");
-		                     //   return;
-		                }
-		                break;
-
-		            default:
-		                System.out.println("Invalid Room Type");
-		                sc.close();
-		              //  return;
-		        }
-
-		        totalBill = (roomCharge + mealCharge) * days;
-
-		        if (days >= 5) {
-		            totalBill = totalBill - (totalBill * 0.10);
-		            System.out.println("10% Discount Applied");
-		        }
-
-		        System.out.println("\n===== BOOKING SUMMARY =====");
-		        System.out.println("Room Charge per Day : " + roomCharge+"Rs.");
-		        System.out.println("Meal Charge per Day : " + mealCharge+"Rs.");
-		        System.out.println("Days                : " + days+"Rs.");
-		        System.out.println("Total Bill          : " + totalBill+"Rs.");
-
-		        sc.close();
-		    }
+			} while (mealPlan != 1 && mealPlan != 2);
 		}
 
+		case 2 -> {
+			roomCharge = 5000;
+
+			do {
+				System.out.println("\nMeal Plan");
+				System.out.println("1. Breakfast (₹400)");
+				System.out.println("2. Breakfast + Dinner (₹900)");
+				System.out.print("Enter Meal Plan: ");
+				mealPlan = sc.nextInt();
+
+				switch (mealPlan) {
+				case 1 -> mealCharge = 400;
+				case 2 -> mealCharge = 900;
+				default -> System.out.println("Invalid Meal Plan! Please Enter Again.");
+				}
+
+			} while (mealPlan != 1 && mealPlan != 2);
+		}
+
+		case 3 -> {
+			roomCharge = 8000;
+
+			do {
+				System.out.println("\nMeal Plan");
+				System.out.println("1. Breakfast (₹500)");
+				System.out.println("2. Breakfast + Lunch + Dinner (₹1200)");
+				System.out.print("Enter Meal Plan: ");
+				mealPlan = sc.nextInt();
+
+				switch (mealPlan) {
+				case 1 -> mealCharge = 500;
+				case 2 -> mealCharge = 1200;
+				default -> System.out.println("Invalid Meal Plan! Please Enter Again.");
+				}
+
+			} while (mealPlan != 1 && mealPlan != 2);
+		}
+		}
+
+		totalBill = (roomCharge + mealCharge) * days;
+
+		// Discount using switch (No if)
+		switch (days >= 5 ? 1 : 0) {
+		case 1 -> {
+			totalBill = totalBill - (totalBill * 0.10);
+			System.out.println("\n10% Discount Applied!");
+		}
+		default -> {
+		}
+		}
+
+		System.out.println("\n===== BOOKING SUMMARY =====");
+		System.out.println("Room Type      : " + roomType);
+		System.out.println("Days           : " + days);
+		System.out.println("Room Charge    : " + roomCharge+"Rs");
+		System.out.println("Meal Charge    : " + mealCharge+"Rs");
+		System.out.println("Total Bill     : " + totalBill+"Rs");
+
+		sc.close();
+	}
+}

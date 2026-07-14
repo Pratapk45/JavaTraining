@@ -101,7 +101,7 @@ public class StudentResultSystem {
 		// Display topper
 		System.out.println("\nTopper: Student " + (topperIndex + 1));
 		System.out.println("Total Marks: " + totals[topperIndex]);
-		System.out.println("Average: " + averages[topperIndex]);
+		System.out.println("Percentage: " + averages[topperIndex]);
 		System.out.println("Grade: " + grades[topperIndex]);
 
 		sc.close();

@@ -72,16 +72,16 @@ public class HouseRent {
 			System.out.println("Maintenance charge cannot be negative.");
 			return;
 		}
-		float totalBill=(rent*months)+electricityBill+waterBill+maintenanceCharge;
+		float totalBill=(rent+electricityBill+waterBill+maintenanceCharge)*months;
 
 		System.out.println("===============Rent Receipt================\n");
 		System.out.println("House Type              : "+type);
 		System.out.println("Monthly Rent            : "+rent);
 		System.out.println("Months                  : "+months);
 		System.out.println("House Rent              : "+(rent*months));
-		System.out.println("Electricity Bill        : "+electricityBill);
-		System.out.println("Water Bill              : "+waterBill);
-		System.out.println("Maintenance Charges     : "+maintenanceCharge);
+		System.out.println("Electricity Bill        : "+electricityBill*months);
+		System.out.println("Water Bill              : "+waterBill*months);
+		System.out.println("Maintenance Charges     : "+maintenanceCharge*months);
 		System.out.println("-------------------------------------------------");
 		System.out.println("Total Bill              : "+totalBill);
 		System.out.println("-------------------------------------------------\n");

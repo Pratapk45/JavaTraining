@@ -1,0 +1,6 @@
+Student Details
+-------------------------
+Student ID : 101
+Student Name : Pratap Tanaji Kachare
+Course : Java
+Marks : 98.0
